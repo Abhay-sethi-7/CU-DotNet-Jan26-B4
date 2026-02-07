@@ -1,0 +1,31 @@
+2/7/2026 11:01:14 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:01:14 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:01:14 AM - SUCCESS: Shipment Hv01 processed.
+2/7/2026 11:01:14 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:05:45 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:05:45 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:05:45 AM - SUCCESS: Shipment Hv01 processed.
+2/7/2026 11:05:45 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:07:04 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:07:04 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:07:04 AM - SUCCESS: Shipment Hv01 processed.
+2/7/2026 11:07:04 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:10:22 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:10:22 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:10:22 AM - SECURITY ALERT: Hv01 denied for location North Pole
+2/7/2026 11:10:22 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:13:02 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:13:02 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:13:02 AM - SECURITY ALERT: Hv01 denied for location North Pole
+2/7/2026 11:13:02 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:13:02 AM - SECURITY ALERT: Ex03 - Exception of type 'GlobalFreightTrackingSystem.InsecurePackagingException' was thrown.
+2/7/2026 11:14:29 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:14:29 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:14:29 AM - SECURITY ALERT: Hv01 denied for location North Pole
+2/7/2026 11:14:29 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:14:29 AM - SECURITY ALERT: Ex03 - Exception of type 'GlobalFreightTrackingSystem.InsecurePackagingException' was thrown.
+2/7/2026 11:46:40 AM - SUCCESS: Shipment Ex01 processed.
+2/7/2026 11:46:40 AM - DATA ENTRY ERROR: Ex02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:46:41 AM - SECURITY ALERT: Hv01 denied for location North Pole
+2/7/2026 11:46:41 AM - DATA ENTRY ERROR: Hx02 - Specified argument was out of the range of valid values. (Parameter 'weight Must be greater than zero!!')
+2/7/2026 11:46:41 AM - SECURITY ALERT: Ex03 - Packaging is insecure!!
