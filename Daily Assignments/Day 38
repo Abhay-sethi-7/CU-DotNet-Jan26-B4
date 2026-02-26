@@ -1,0 +1,27 @@
+public static string VowelShiftCipher(string input)
+        {
+            char[] inputArr = input.ToCharArray();
+            string vowels = "aeiou";
+            for (int i = 0; i < inputArr.Length; i++)
+            {
+                char ch = inputArr[i];
+                if (vowels.Contains(ch))
+                {
+                    int index = vowels.IndexOf(ch);
+                    inputArr[i] = vowels[(index + 1) % 5];
+
+                }
+                else
+                {
+                    char next = (char)(inputArr[i] + 1);
+                    if (next > 'z')
+                        next = 'a';
+
+                    if (vowels.Contains(next))
+                        next++;
+
+                    inputArr[i] = next;
+                }
+            }
+            return new string(inputArr); ;
+        }
