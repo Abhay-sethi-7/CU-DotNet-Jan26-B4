@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Training";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Professional Training Programs</h2>
+
+    <div class="alert alert-success">
+        We provide industry-focused training programs to help students and professionals build strong technical skills.
+    </div>
+
+    <div class="row">
+
+    
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Web Development</h5>
+                    <p class="card-text">
+                        Learn HTML, CSS, JavaScript, and modern frameworks to build responsive websites.
+                    </p>
+                    <button class="btn btn-primary" onclick="showToast()">View Course</button>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Cloud Computing</h5>
+                    <p class="card-text">
+                        Understand cloud platforms, deployment, and infrastructure management.
+                    </p>
+                    <button class="btn btn-success" onclick="showToast()">View Course</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Analytics -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Data Analytics</h5>
+                    <p class="card-text">
+                        Learn how to analyze data using tools like Python, Excel, and Power BI.
+                    </p>
+                    <button class="btn btn-warning" onclick="showToast()">View Course</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Accordion Section -->
+    <div class="mt-5">
+        <h3>Why Choose Our Training?</h3>
+
+        <div class="accordion" id="trainingAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#one">
+                        Expert Trainers
+                    </button>
+                </h2>
+                <div id="one" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        Our trainers are industry professionals with practical experience.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#two">
+                        Hands-on Learning
+                    </button>
+                </h2>
+                <div id="two" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Students learn through real-world projects and practical assignments.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div id="myToast" class="toast">
+
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+
+        <div class="toast-body">
+            Course details will be available soon!
+        </div>
+
+    </div>
+
+</div>
+

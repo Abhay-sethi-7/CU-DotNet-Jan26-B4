@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Consulting";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">IT Consulting Services</h2>
+
+    <div class="alert alert-primary">
+        We provide professional IT consulting to help businesses grow using modern technology.
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">IT Strategy</h5>
+                    <p class="card-text">
+                        Helping companies plan their technology strategy and digital transformation.
+                    </p>
+                    <button class="btn btn-primary" onclick="showToast()">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Cloud Solutions</h5>
+                    <p class="card-text">
+                        Migration and management of cloud platforms for scalable business solutions.
+                    </p>
+                    <button class="btn btn-success" onclick="showToast()">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">System Integration</h5>
+                    <p class="card-text">
+                        Integrating software systems to improve productivity and efficiency.
+                    </p>
+                    <button class="btn btn-warning" onclick="showToast()">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+        <h3>Why Choose Our Consulting?</h3>
+
+        <div class="accordion" id="consultAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#one">
+                        Experienced Experts
+                    </button>
+                </h2>
+                <div id="one" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        Our consultants have years of experience in IT and business solutions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#two">
+                        Modern Technologies
+                    </button>
+                </h2>
+                <div id="two" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        We use the latest technologies to build efficient and scalable systems.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div> 
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div id="myToast" class="toast">
+
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+
+        <div class="toast-body">
+             details will be available soon!
+        </div>
+
+    </div>
+
+</div>
+

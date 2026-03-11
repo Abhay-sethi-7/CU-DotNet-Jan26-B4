@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Software";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Our Software Products</h2>
+
+    <div class="alert alert-info">
+        We develop powerful software products that help businesses improve productivity and efficiency.
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">CRM System</h5>
+                    <p class="card-text">
+                        Manage customer relationships, sales tracking, and communication in one platform.
+                    </p>
+                    <button class="btn btn-primary" onclick="showToast()">View Product</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory Management</h5>
+                    <p class="card-text">
+                        Track stock levels, manage orders, and monitor product movement easily.
+                    </p>
+                    <button class="btn btn-success" onclick="showToast()">View Product</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">HR Management System</h5>
+                    <p class="card-text">
+                        Simplify employee records, payroll processing, and attendance management.
+                    </p>
+                    <button class="btn btn-warning" onclick="showToast()">View Product</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  
+    <div class="mt-5">
+        <h3>Why Choose Our Software?</h3>
+
+        <div class="accordion" id="productAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#one">
+                        Easy to Use
+                    </button>
+                </h2>
+                <div id="one" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        Our software products are designed with simple and user-friendly interfaces.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#two">
+                        Secure & Reliable
+                    </button>
+                </h2>
+                <div id="two" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        We ensure high security standards and reliable performance for all our software solutions.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div id="myToast" class="toast">
+
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+
+        <div class="toast-body">
+            Details will be available soon!
+        </div>
+
+    </div>
+
+</div>

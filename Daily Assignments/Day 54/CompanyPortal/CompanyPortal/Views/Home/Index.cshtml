@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-4">
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <h1>Welcome to Company Portal</h1>
+        <p>This is a sample MVC website using Bootstrap.</p>
+        <button class="btn btn-primary btn-lg" onclick="showToast()">Learn More</button>
+    </div>
+
+   
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Consulting</h5>
+                    <p class="card-text">Professional IT consulting services.</p>
+                    <button class="btn btn-success" onclick="showToast()">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Training</h5>
+                    <p class="card-text">Learn new technologies with us.</p>
+                    <button class="btn btn-success" onclick="showToast()">Read More</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div id="myToast" class="toast">
+
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+
+        <div class="toast-body">
+            Details will be available soon!
+        </div>
+
+    </div>
+
+</div>

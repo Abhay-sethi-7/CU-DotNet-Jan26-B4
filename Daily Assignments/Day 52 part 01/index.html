@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Application Form</title>
+
+<script>
+function showData(event){
+    event.preventDefault();   
+
+    var f = document.forms["loanForm"];
+
+    var gender = "";
+    if(f.gender[0].checked) gender = f.gender[0].value;
+    if(f.gender[1].checked) gender = f.gender[1].value;
+
+    var sameAddress = f.same_address.checked ? "Yes" : "No";
+
+    var data =
+    "----- Loan Application Details -----\n\n" +
+    "First Name: " + f.first_name.value + "\n" +
+    "Middle Name: " + f.middle_name.value + "\n" +
+    "Last Name: " + f.last_name.value + "\n" +
+    "Account No: " + f.account_no.value + "\n" +
+    "Date: " + f.date.value + "\n" +
+    "Age: " + f.age.value + "\n" +
+    "Phone: " + f.phone.value + "\n" +
+    "Aadhaar: " + f.aadhaar.value + "\n" +
+    "PAN: " + f.pan.value + "\n" +
+    "Gender: " + gender + "\n" +
+    "Father Name: " + f.father_name.value + "\n" +
+    "CIBIL Score: " + f.cibil_score.value + "\n\n" +
+
+    "Current Address:\n" +
+    "Country: " + f.current_country.value + "\n" +
+    "State: " + f.current_state.value + "\n" +
+    "City: " + f.current_city.value + "\n" +
+    "Pincode: " + f.current_pincode.value + "\n\n" +
+
+    "Same as Current Address: " + sameAddress + "\n\n" +
+
+    "Permanent Address:\n" +
+    "Country: " + f.permanent_country.value + "\n" +
+    "State: " + f.permanent_state.value + "\n" +
+    "City: " + f.permanent_city.value + "\n" +
+    "Pincode: " + f.permanent_pincode.value + "\n\n" +
+
+    "Loan Details:\n" +
+    "Loan Type: " + f.loan_type.value + "\n" +
+    "Amount: " + f.amount.value + "\n" +
+    "Interest Rate: " + f.interest.value + "%\n" +
+    "Tenure: " + f.tenure.value + " months\n" +
+    "Income Source: " + f.income_source.value + "\n" +
+    "Collateral: " + f.collateral.value;
+
+    alert(data);   
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Loan Application Form</h2>
+
+<form name="loanForm" onsubmit="showData(event)">
+
+<fieldset>
+        <legend>Personal Details</legend>
+
+        <Label for="first_name">First Name:</Label>
+        <input type="text" name="first_name" required><br><br>
+
+        <Label for="middle_name">Middle Name:</Label> 
+        <input type="text" name="middle_name"><br><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" required><br><br>
+        <label for="account_no">   Account No:</label>
+        <input type="text" name="account_no" pattern="[0-9]{9,18}" placeholder="82928292882" required>
+        <br><br>
+        <label for="date">Date:</label>
+        <input type="date" name="date" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" min="18" max="50" required><br><br>
+
+        <label for="phone"> Phone No:</label>
+        <input type="tel" name="phone" pattern="^[6-9]{1}[0-9]{9}" placeholder="999999999" required>
+        <br><br>
+
+        <label for="aadhar">Aadhaar:</label>
+        <input type="text" name="aadhaar" pattern="^[0-9]{12}" placeholder="123456789000" required>
+        <br><br>
+
+        <label for="pan">PAN Card:</label>
+        <input type="text" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" placeholder="ABCDE1234F" required>
+        <br><br>
+
+        
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+
+        
+        <label for="father_name">Father's Name:</label>
+        <input type="text" name="father_name" required><br><br>
+
+        
+        <label for="photo">Photo:</label>
+        <input type="file" name="photo"  required><br><br>
+
+        <label for="cibil_score">CIBIL Score:</label>
+        <input type="number" name="cibil_score" min="300" max="900" required><br><br>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Current Address</legend>
+
+        <label for="current_country" >Country:</label>
+        <input type="text" name="current_country" placeholder="India" required><br><br>
+
+        <label for="current_state">State:</label>
+        <input type="text" name="current_state" placeholder="Himachal Pradesh" required><br><br>
+
+        
+        <label for="current_city">City:</label>
+        <input type="text" name="current_city" placeholder="Hamirpur" required><br><br>
+
+        <label for="current_pincode">Pincode:</label>
+        <input type="text" name="current_pincode" pattern="[0-9]{6}" placeholder ="140413" required>
+        <br><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Permanent Address</legend>
+
+        <input type="checkbox" name="same_address">
+        Same as Current Address<br><br>
+
+        <label for="permanent_country">Country:</label>
+        <input type="text" name="permanent_country" placeholder="India" required><br><br>
+
+        <label for="permanent_state">State:</label>
+        <input type="text" name="permanent_state"placeholder="Himachal Pradesh" required><br><br>
+
+        
+        <label for="permanent_city">City:</label>
+        <input type="text" name="permanent_city" placeholder="Hamirpur" required><br><br>
+
+        <label for="permanent_pincode">Pincode:</label>
+        <input type="text" name="permanent_pincode" pattern="[0-9]{6}" placeholder ="160613" required>
+        <br><br>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Loan Details</legend>
+
+        
+        <label for="loan_type">Loan Type:</label>
+        <select name="loan_type" required>
+            <option value="">--Select Loan Type--</option>
+            <option value="Home">Home</option>
+            <option value="Personal">Personal</option>
+            <option value="Car">Car</option>
+            <option value="Education">Education</option>
+            <option value="Business">Business</option>
+        </select>
+        <br><br>
+
+       <label for="amount">Amount:</label> 
+        <input type="number" name="amount" min="1000" required><br><br>
+        <label for="interest">Interest Rate (%):</label>
+        <input type="number" name="interest" step="0.01" required><br><br>
+        <label for="tenure"> Tenure (in months):</label>
+        <input type="number" name="tenure" required><br><br>
+        <label for="income_source">Income Source:</label>
+        <input type="text" name="income_source" required><br><br>
+        <Label for="collateral">Collateral Details:</Label>
+        <textarea name="collateral" rows="4" cols="40"></textarea><br><br>
+
+    </fieldset>
+
+   
+        <label>Terms & Conditions</label>
+        <br>
+        <input type="checkbox" name="terms" required>
+        I agree to the Terms and Conditions
+        <br><br>
+<input type="submit" value="Apply">
+
+</form>
+
+</body>
+</html>
