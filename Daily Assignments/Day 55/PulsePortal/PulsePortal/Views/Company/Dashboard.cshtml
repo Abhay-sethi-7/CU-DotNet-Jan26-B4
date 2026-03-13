@@ -1,0 +1,42 @@
+﻿
+@model List<Employee>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+<div class="alert alert-dark">
+    @ViewBag.Announcement
+</div>
+<h3>Department: @ViewData["DepartmentName"]</h3>
+@{bool status =(bool) ViewData["IsActive"];}
+@{if (status)
+{
+    <p class="text-success">Department is Active</p>
+}
+else
+{
+    <p class="text-danger">Department Under Maintenance</p>
+}}
+<table class="table table-bordered table-hover table-striped">
+  <thead class="table-dark text-center">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Salary</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td class="text-center">@emp.Id</td>
+                <td class="text-center">@emp.Name</td>
+                <td class="text-center">@emp.Position</td>
+                <td class="text-center">@emp.Salary</td>
+            </tr>
+        }
+    </tbody>
+</table>
