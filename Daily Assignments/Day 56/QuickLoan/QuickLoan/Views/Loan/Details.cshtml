@@ -1,0 +1,69 @@
+﻿@model QuickLoan.Models.Loan
+
+@{
+    ViewData["Title"] = "Loan Details";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h3>Loan Details</h3>
+        </div>
+
+        <div class="card-body">
+
+            <dl class="row">
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.BorrowerName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.BorrowerName)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.LenderName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.LenderName)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Amount)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Amount)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.IsSettled)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.IsSettled)
+                </dd>
+
+            </dl>
+
+        </div>
+
+        <div class="card-footer text-end">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                Edit
+            </a>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to List
+            </a>
+        </div>
+
+    </div>
+
+</div>
