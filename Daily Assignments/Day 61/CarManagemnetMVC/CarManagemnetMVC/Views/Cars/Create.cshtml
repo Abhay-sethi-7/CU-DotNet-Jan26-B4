@@ -1,0 +1,69 @@
+﻿@model CarManagemnetMVC.Models.Car
+
+@{
+    ViewData["Title"] = "Add Car";
+}
+
+<div class="container mt-5">
+
+    <!-- Title -->
+    <div class="text-center mb-4">
+        <h2 class="text-success">Add New Car</h2>
+        <p class="text-muted">Enter car details below</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <!-- Card -->
+            <div class="card shadow p-4">
+
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- Brand -->
+                    <div class="form-group mb-3">
+                        <label>Brand</label>
+                        <input asp-for="Brand" class="form-control" placeholder="e.g. Toyota" />
+                        <span asp-validation-for="Brand" class="text-danger"></span>
+                    </div>
+
+                    <!-- Model -->
+                    <div class="form-group mb-3">
+                        <label>Model</label>
+                        <input asp-for="Model" class="form-control" placeholder="e.g. Corolla" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+
+                    <!-- Year -->
+                    <div class="form-group mb-3">
+                        <label>Year</label>
+                        <input asp-for="Year" class="form-control" placeholder="e.g. 2022" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="form-group mb-3">
+                        <label>Price</label>
+                        <input asp-for="Price" class="form-control" placeholder="e.g. 1500000" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-success">Create</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,58 @@
+﻿@model CarManagemnetMVC.Models.Car
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<div class="container mt-5">
+
+    <!-- Title -->
+    <div class="text-center mb-4">
+        <h2 class="text-primary">Car Details</h2>
+        <p class="text-muted">View complete information about the car</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <!-- Card -->
+            <div class="card shadow p-4">
+
+                <h5 class="text-center mb-3">Car Information</h5>
+                <hr />
+
+                <dl class="row">
+                    <dt class="col-sm-4">Brand</dt>
+                    <dd class="col-sm-8">@Model.Brand</dd>
+
+                    <dt class="col-sm-4">Model</dt>
+                    <dd class="col-sm-8">@Model.Model</dd>
+
+                    <dt class="col-sm-4">Year</dt>
+                    <dd class="col-sm-8">@Model.Year</dd>
+
+                    <dt class="col-sm-4">Price</dt>
+                    <dd class="col-sm-8">₹ @Model.Price</dd>
+                </dl>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between mt-3">
+
+                    <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+                    <div>
+                        @* Admin only *@
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

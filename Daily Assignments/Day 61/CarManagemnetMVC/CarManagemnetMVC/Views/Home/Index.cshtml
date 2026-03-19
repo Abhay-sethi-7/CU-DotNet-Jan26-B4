@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5">
+
+    <!-- Title Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary">Car Management System</h1>
+        <p class="lead text-muted">Manage cars efficiently with role-based access</p>
+    </div>
+
+    <!-- Role-based Welcome -->
+    <div class="text-center mb-4">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h5>Welcome, <strong>@User.Identity.Name</strong> 👋</h5>
+        }
+        else
+        {
+            <h5>Please login to continue</h5>
+        }
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="row justify-content-center">
+
+        <!-- View Cars -->
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>View Cars</h5>
+                <p class="text-muted">See available cars</p>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">Login to Continue</a>
+                }
+                else
+                {
+                    <a asp-controller="Cars" asp-action="Index" class="btn btn-primary">Go to Cars</a>
+                }
+            </div>
+        </div>
+
+        <!-- Add Car (Admin + Customer) -->
+        @if (User.IsInRole("Admin") || User.IsInRole("Customer"))
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card shadow text-center p-3">
+                    <h5>Add Car</h5>
+                    <p class="text-muted">Create new car entry</p>
+                    
+
+                    <a asp-controller="Cars" asp-action="Create" class="btn btn-success">Add</a>
+
+                 
+                </div>
+            </div>
+        }
+
+        <!-- Admin Panel -->
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card shadow text-center p-3">
+                    <h5>Manage Cars</h5>
+                    <p class="text-muted">Edit & delete cars</p>
+                   
+
+                    <a asp-controller="Cars" asp-action="Index" class="btn btn-warning">Manage</a>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <!-- Info Section -->
+    <div class="text-center mt-5">
+        <p class="text-muted">
+            This system supports role-based access:
+        </p>
+        <ul class="list-unstyled">
+            <li>Admin → Full Access</li>
+            <li>Customer → View + Create</li>
+            <li>User → View Only</li>
+        </ul>
+    </div>
+
+</div>
