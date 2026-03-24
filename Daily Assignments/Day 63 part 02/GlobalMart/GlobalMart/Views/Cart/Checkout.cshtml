@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+    var promoCode = Context.Request.Query["promoCode"].ToString();
+}
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <h2 class="text-center mb-4">Checkout Summary</h2>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Product:</span>
+                        <span>Winter Jacket</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Base Price:</span>
+                        <span>$100</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between fw-bold fs-5 text-success">
+                        <span>Total:</span>
+                        <span>$@ViewBag.Total</span>
+                    </div>
+
+                    <hr />
+
+                    <form method="get" class="text-center">
+                        <input type="text" name="promoCode" class="form-control mb-3" placeholder="Enter promo code" />
+                        <button type="submit" class="btn btn-success w-100">Apply Promo</button>
+                    </form>
+
+                    @if (promoCode == "WINTER25")
+                    {
+                        <p class="text-success text-center mt-3 fw-bold">15% discount applied!</p>
+                    }
+                    else if (promoCode == "FREESHIP")
+                    {
+                        <p class="text-success text-center mt-3 fw-bold">$5 discount applied!</p>
+                    }
+                    else if (Context.Request.Query["promoCode"].ToString() == "CU25")
+                    {
+                        <p class="text-success mt-3">25% discount applied!</p>
+                    }
+                    else if (Context.Request.Query["promoCode"].ToString() == "ABHAY")
+                    {
+                        <p class="text-success mt-3">$50 discount applied!</p>
+                    }
+                    else if (!string.IsNullOrEmpty(promoCode))
+                    {
+                        <p class="text-danger text-center mt-3 fw-bold">Invalid promo code</p>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
