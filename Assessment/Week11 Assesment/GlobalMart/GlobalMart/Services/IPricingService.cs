@@ -4,5 +4,6 @@
     {
         decimal CalculatePrice(decimal basePrice, string promoCode);
         decimal GetBasePrice();
+        IEnumerable<string> GetAvailablePromoCodes();
     }
 }

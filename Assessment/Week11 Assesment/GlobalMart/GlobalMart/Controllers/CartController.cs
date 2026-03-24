@@ -1,5 +1,7 @@
 ﻿using GlobalMart.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace GlobalMart.Controllers
 {
@@ -17,11 +19,24 @@ namespace GlobalMart.Controllers
         [HttpGet]
         public IActionResult Checkout(string promoCode)
         {
-            var basePrice = _pricingService.GetBasePrice();
-            ViewBag.Total = _pricingService.CalculatePrice(basePrice, promoCode);
+            try
+            {
+                decimal basePrice = 100m;
+                var finalPrice = _pricingService.CalculatePrice(basePrice, promoCode);
 
-            return View();
+                ViewBag.Total = finalPrice;
+                ViewBag.PromoCodes = _pricingService.GetAvailablePromoCodes();
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error calculating price in CartController.Checkout (promoCode: {PromoCode})", promoCode);
+                ViewBag.Error = "An error occurred while calculating the total. Check logs for details.";
+                ViewBag.Total = 0m;
+                ViewBag.PromoCodes = _pricingService.GetAvailablePromoCodes();
+                return View();
+            }
         }
     }
-    
 }

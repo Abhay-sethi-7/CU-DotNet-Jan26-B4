@@ -1,12 +1,15 @@
-﻿namespace GlobalMart.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace GlobalMart.Services
 {
     public class PricingService : IPricingService
     {
-       
-            public decimal GetBasePrice()
-            {
-                return 100;
-            }
+        public decimal GetBasePrice()
+        {
+            return 100;
+        }
         public decimal CalculatePrice(decimal basePrice, string promoCode)
         {
             decimal finalPrice = basePrice;
@@ -16,12 +19,13 @@
                 switch (promoCode.ToUpper())
                 {
                     case "WINTER25":
-                        finalPrice -= basePrice * 0.15m; 
+                        finalPrice -= basePrice * 0.15m;
                         break;
 
                     case "FREESHIP":
-                        finalPrice -= 5.00m; 
+                        finalPrice -= 5.00m;
                         break;
+
                     case "CU25":
                         finalPrice -= basePrice * 0.25m;
                         break;
@@ -33,6 +37,18 @@
             }
 
             return finalPrice < 0 ? 0 : finalPrice;
+        }
+
+        public IEnumerable<string> GetAvailablePromoCodes()
+        {
+            
+            return new List<string>
+            {
+                "WINTER25",
+                "FREESHIP",
+                "CU25",
+                "ABHAY"
+            };
         }
     }
 }

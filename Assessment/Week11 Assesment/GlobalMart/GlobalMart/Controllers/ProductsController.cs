@@ -1,6 +1,7 @@
 ﻿using GlobalMart.Services;
 using Microsoft.AspNetCore.Mvc;
 using GlobalMart.Models;
+using System.Collections.Generic;
 
 namespace GlobalMart.Controllers
 {
@@ -17,6 +18,7 @@ namespace GlobalMart.Controllers
         {
             var basePrice = _pricingService.GetBasePrice();
             ViewBag.Price = _pricingService.CalculatePrice(basePrice, promoCode);
+            ViewBag.PromoCodes = _pricingService.GetAvailablePromoCodes();
 
             return View();
         }

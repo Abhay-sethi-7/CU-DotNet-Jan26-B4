@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Products";
+    var promoCode = Context.Request.Query["promoCode"].ToString();
+    var promoCodes = ViewBag.PromoCodes as IEnumerable<string> ?? new List<string>();
 }
 
 
@@ -20,23 +22,35 @@
                     </div>
 
                     <form method="get" class="mt-3">
-                        <input type="text" name="promoCode" class="form-control mb-3" placeholder="Enter promo code" />
+                        <select name="promoCode" class="form-select mb-3">
+                            <option value="">-- Select promo code --</option>
+                            @foreach (var code in promoCodes)
+                            {
+                                <option value="@code" selected="@(code == promoCode)">
+                                    @code
+                                </option>
+
+
+
+
+                            }
+                        </select>
                         <button type="submit" class="btn btn-primary w-100">Apply Code</button>
                     </form>
 
-                    @if (Context.Request.Query["promoCode"].ToString() == "WINTER25")
+                    @if (promoCode == "WINTER25")
                     {
                         <p class="text-success mt-3">15% discount applied!</p>
                     }
-                    else if (Context.Request.Query["promoCode"].ToString() == "FREESHIP")
+                    else if (promoCode == "FREESHIP")
                     {
                         <p class="text-success mt-3">$5 discount applied!</p>
                     }
-                    else if (Context.Request.Query["promoCode"].ToString() == "CU25")
+                    else if (promoCode == "CU25")
                     {
                         <p class="text-success mt-3">25% discount applied!</p>
                     }
-                    else if (Context.Request.Query["promoCode"].ToString() == "ABHAY")
+                    else if (promoCode == "ABHAY")
                     {
                         <p class="text-success mt-3">$50 discount applied!</p>
                     }
