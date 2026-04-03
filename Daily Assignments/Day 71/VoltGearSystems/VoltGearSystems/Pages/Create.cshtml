@@ -1,0 +1,11 @@
+﻿@page
+@model VoltGearSystems.Pages.CreateModel
+@{
+}
+<form method="post">
+    <input asp-for="ModelName" placeholder="Model Name" class="form-control" />
+    <input asp-for="SerialNumber" placeholder="Serial Number" class="form-control" />
+    <input asp-for="Price" placeholder="Price" class="form-control" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

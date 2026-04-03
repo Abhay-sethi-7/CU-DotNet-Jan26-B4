@@ -1,0 +1,28 @@
+﻿@page
+@model VoltGearSystems.Pages.IndexModel
+@{
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Serial</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Laptops)
+        {
+            <tr>
+                <td>@item.ModelName</td>
+                <td>@item.SerialNumber</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
