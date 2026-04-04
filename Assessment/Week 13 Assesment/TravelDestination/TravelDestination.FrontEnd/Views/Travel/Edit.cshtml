@@ -1,0 +1,42 @@
+﻿@model TravelDestination.FrontEnd.Models.Destination
+
+@{
+    ViewData["Title"] = "Edit Destination";
+}
+
+<h2 class="mb-4">Edit Destination</h2>
+
+<form asp-action="Edit" method="post">
+
+    <!-- Hidden ID -->
+    <input asp-for="DestinationID" type="hidden" />
+
+    <div class="mb-3">
+        <label class="form-label">City Name</label>
+        <input asp-for="CityName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <input asp-for="Country" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Rating (1–5)</label>
+        <input asp-for="Rating" type="number" min="1" max="5" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Last Visited</label>
+        <input asp-for="LastVisited" type="date" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-warning">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+
+</form>

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TravelDestination.FrontEnd/TravelDestination.FrontEnd.csproj" />
+  <Project Path="TravelDestination/TravelDestination.Backend.csproj" />
+</Solution>

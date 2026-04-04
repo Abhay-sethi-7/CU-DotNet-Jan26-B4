@@ -1,0 +1,30 @@
+﻿@model TravelDestination.FrontEnd.Models.Destination
+
+@{
+    ViewData["Title"] = "Delete Destination";
+}
+
+<h2 class="mb-4 text-danger">Delete Destination</h2>
+
+<div class="card border-danger">
+    <div class="card-header bg-danger text-white">
+        <h4>Are you sure you want to delete this?</h4>
+    </div>
+
+    <div class="card-body">
+        <p><strong>City:</strong> @Model.CityName</p>
+        <p><strong>Country:</strong> @Model.Country</p>
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Rating:</strong> @Model.Rating</p>
+        <p><strong>Last Visited:</strong> @Model.LastVisited.ToShortDateString()</p>
+    </div>
+
+    <div class="card-footer">
+        <form asp-action="Delete" method="post">
+            <input asp-for="DestinationID" type="hidden" />
+
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
