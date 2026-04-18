@@ -1,0 +1,21 @@
+﻿@model List<NorthwindCatalog.Services.DTOs.CategoryDto>
+
+<h2>Categories</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <img src="@item.ImageUrl" class="card-img-top" />
+                <div class="card-body text-center">
+                    <h5>@item.CategoryName</h5>
+
+                    <a href="/Products/ByCategory/@item.CategoryId" class="btn btn-primary">
+                        View Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
