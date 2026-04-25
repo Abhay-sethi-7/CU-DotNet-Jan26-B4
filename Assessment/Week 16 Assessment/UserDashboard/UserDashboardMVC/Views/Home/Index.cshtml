@@ -1,0 +1,223 @@
+﻿@model UserDashboardMVC.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- HERO CAROUSEL -->
+<section class="hero">
+    <div class="hero-track">
+        @if (Model.HeroProducts.Any())
+        {
+            int total = Model.HeroProducts.Count;
+            for (int i = 0; i < total; i++)
+            {
+                var p = Model.HeroProducts[i];
+                <div class="hero-slide" style="animation-delay:@(i * -5)s;animation-duration:@(total * 5)s">
+                    <div class="hero-img" style="background-image:url('@p.ImageUrl1')"></div>
+                    <div class="hero-content">
+                        <span class="hero-eyebrow">THE ARCHITECTURAL SERIES</span>
+                        <h1 class="hero-title">@p.Name</h1>
+                        <p class="hero-desc">@(p.Description ?? "Full-grain leather engineered for a seamless fit.")</p>
+                        <p class="hero-price">@p.Price.ToString("C0")</p>
+                        <div class="hero-actions">
+                            <a href="#" class="btn-inverted">SHOP NOW</a>
+                            <a href="#" class="btn-outline">VIEW DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="hero-slide fallback-slide">
+                <div class="hero-img" style="background-image:url('@Url.Content("~/OIP.webp")')"></div>
+                <div class="hero-content">
+                    <span class="hero-eyebrow">THE ARCHITECTURAL SERIES</span>
+                    <h1 class="hero-title">Sleek Leather Sleeve</h1>
+                    <p class="hero-desc">Full-grain Italian leather engineered for a seamless fit.</p>
+                    <p class="hero-price">$145.00</p>
+                    <div class="hero-actions">
+                        <a href="#" class="btn-inverted">SHOP NOW</a>
+                        <a href="#" class="btn-outline">VIEW DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="hero-dots">
+        @{
+            int dotCount = Model.HeroProducts.Any() ? Model.HeroProducts.Count : 1;
+        }
+        @for (int i = 0; i < dotCount; i++)
+        {
+            <span class="dot @(i == 0 ? "active" : "")"></span>
+        }
+    </div>
+</section>
+
+<!-- SHOP BY CATEGORY -->
+<section class="section categories-section">
+    <div class="container">
+        <div class="categories-grid">
+            @foreach (var cat in Model.Categories)
+            {
+                <a href="/products/@cat.Slug" class="category-card">
+                    <div class="cat-img-wrap">
+                        <div class="cat-img" style="background-image:url('@cat.ImageUrl')"></div>
+                    </div>
+                    <div class="cat-info">
+                        <span class="cat-label">SHOP SERIES</span>
+                        <h3 class="cat-name">@cat.Name</h3>
+                        <span class="cat-arrow">→</span>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- NEW IN TECH -->
+<section class="section new-tech-section">
+    <div class="container">
+        <div class="section-header">
+            <div>
+                <span class="eyebrow">THE LATEST</span>
+                <h2 class="section-title">New in Tech</h2>
+            </div>
+            <div class="scroll-arrows"><span>&#8249;</span><span>&#8250;</span></div>
+        </div>
+        <div class="product-scroll">
+            @if (Model.NewInTech.Any())
+            {
+                foreach (var p in Model.NewInTech)
+                {
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-img" style="background-image:url('@p.ImageUrl1')"></div>
+                            <div class="product-overlay"><a href="#" class="btn-ghost">QUICK VIEW</a></div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">HARDWARE</span>
+                            <h4 class="product-name">@p.Name</h4>
+                            <span class="product-price">@p.Price.ToString("C0")</span>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                var pNames = new[] { "Arch Aluminum Stand", "Pivot Wireless Disk", "Vertical Dock II" };
+                var pPrices = new[] { "$89.00", "$65.00", "$78.00" };
+                var pImgs = new[] {
+                    "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400",
+                    "https://images.unsplash.com/photo-1612832164313-ac0d7e07b5ce?w=400",
+                    "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400"
+                };
+                for (int i = 0; i < 3; i++)
+                {
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <div class="product-img" style="background-image:url('@pImgs[i]')"></div>
+                            <div class="product-overlay"><a href="#" class="btn-ghost">QUICK VIEW</a></div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">HARDWARE</span>
+                            <h4 class="product-name">@pNames[i]</h4>
+                            <span class="product-price">@pPrices[i]</span>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<!-- TRENDING -->
+<section class="section trending-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Trending</h2>
+        </div>
+        <div class="trending-grid">
+            @if (Model.Trending.Any())
+            {
+                foreach (var p in Model.Trending)
+                {
+                    <div class="trending-card">
+                        <div class="trending-img-wrap">
+                            <div class="trending-img" style="background-image:url('@p.ImageUrl1')"></div>
+                            @if (p.ImageUrl2 != null)
+                            {
+                                <div class="trending-img trending-img-hover" style="background-image:url('@p.ImageUrl2')"></div>
+                            }
+                            <span class="badge">TRENDING</span>
+                        </div>
+                        <div class="trending-info">
+                            <h4>@p.Name</h4>
+                            <p>@(p.Description != null && p.Description.Length > 65 ? p.Description.Substring(0, 65) + "…" : p.Description)</p>
+                            <div class="trending-footer">
+                                <span class="product-price">@p.Price.ToString("C0")</span>
+                                <a href="#" class="add-to-cart">ADD TO CART →</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                var tNames = new[] { "Leather Phone Wallet", "Felt Laptop Folio" };
+                var tDescs = new[] { "The perfect MagSafe companion for your daily carry.", "Sustainably sourced protection with an editorial edge." };
+                var tPrices = new[] { "$65.00", "$56.00" };
+                var tImgs = new[] {
+                    "https://images.unsplash.com/photo-1627123424574-724758594913?w=600",
+                    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600"
+                };
+                for (int i = 0; i < 2; i++)
+                {
+                    <div class="trending-card">
+                        <div class="trending-img-wrap">
+                            <div class="trending-img" style="background-image:url('@tImgs[i]')"></div>
+                            <span class="badge">TRENDING</span>
+                        </div>
+                        <div class="trending-info">
+                            <h4>@tNames[i]</h4>
+                            <p>@tDescs[i]</p>
+                            <div class="trending-footer">
+                                <span class="product-price">@tPrices[i]</span>
+                                <a href="#" class="add-to-cart">ADD TO CART →</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<!-- DESIGN PHILOSOPHY / PLATFORM -->
+<section class="platform-section">
+    <div class="platform-img" style="background-image:url('https://images.unsplash.com/photo-1593642634367-d91a135587b5?w=1400')"></div>
+    <div class="platform-overlay"></div>
+    <div class="platform-content">
+        <span class="eyebrow light-eyebrow">THE INTENT</span>
+        <h2 class="platform-title">The Design<br />Philosophy</h2>
+        <p class="platform-desc">At JAVLN, we engineer for the modern professional who views their workspace as a sanctuary of focus. Our commitment lies at the intersection of architectural precision and tactile warmth.</p>
+        <div class="platform-pillars">
+            <div class="pillar"><span class="pillar-num">01.</span><span>Purposeful Form</span></div>
+            <div class="pillar"><span class="pillar-num">02.</span><span>Honest Materials</span></div>
+        </div>
+        <a href="#" class="btn-outline">EXPLORE THE COLLECTION</a>
+    </div>
+</section>
+
+<!-- CORPORATE GIFTING -->
+<section class="corporate-section">
+    <div class="container">
+        <div class="corporate-inner">
+            <span class="eyebrow">BUSINESS EXCELLENCE</span>
+            <h2 class="corporate-title">Corporate Gifting</h2>
+            <p class="corporate-desc">Elevate your team's daily workflow. We offer custom branding and bulk fulfillment for companies that value design-led professionalism.</p>
+            <a href="#" class="btn-dark">REQUEST A QUOTE &#8594;</a>
+        </div>
+    </div>
+</section>
